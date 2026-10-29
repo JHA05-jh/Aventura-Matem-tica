@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>🎲 Aventura Matemática</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <div id="confeti"></div>
+
+  <section id="inicio" class="pantalla activa">
+    <div class="decoracion">🌈 ⭐ 🎈 📚 ✏️ 🧸</div>
+    <div class="tarjeta bienvenida">
+      <div class="personaje grande" id="personajeInicio">👧🏻</div>
+      <div class="burbuja">
+        <h1>🎲 ¡Aventura Matemática! 🎲</h1>
+        <p>¡Hola! Soy Mía 😊. Vamos a aprender jugando con los dados.</p>
+        <label>🏫 ¿En qué colegio estudias?</label>
+        <input id="colegio" type="text" placeholder="Escribe tu colegio">
+        <button id="btnEmpezar">🚀 ¡EMPECEMOS!</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="pantalla">
+    <div class="barra"><span>🏫 <b id="nombreColegio"></b></span><span>⭐ <b id="puntosMenu">0</b></span></div>
+    <div class="tarjeta menu-card">
+      <div class="personaje">👧🏻</div>
+      <div class="burbuja">
+        <h2>¡Elige tu misión! 🗺️</h2>
+        <p>Primero empezaremos fácil y cada misión se pondrá más difícil.</p>
+      </div>
+      <div class="misiones">
+        <button class="mision suma" data-op="suma">🎲 ➕<strong>SUMAS</strong><small>Junta los dados</small></button>
+        <button class="mision resta" data-op="resta">🎲 ➖<strong>RESTAS</strong><small>¡A quitar!</small></button>
+        <button class="mision multi" data-op="multiplicacion">🎲 ✖️<strong>MULTIPLICACIÓN</strong><small>¡Multiplica!</small></button>
+        <button class="mision combinada" data-op="combinada">🎲 🧠<strong>COMBINADAS</strong><small>¡El reto final!</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="juego" class="pantalla">
+    <div class="barra">
+      <button id="btnVolver">🏠 Menú</button>
+      <span id="tituloOperacion">SUMAS</span>
+      <span>⭐ <b id="puntos">0</b></span>
+      <span>🎯 Turno <b id="turno">1</b>/10</span>
+      <span>🏆 Nivel <b id="nivel">1</b></span>
+    </div>
+
+    <div class="aula">
+      <div class="pizarra">📚 <span id="mensajePizarra">¡Tú puedes!</span> ✏️ <span id="estrellasMeta">⭐ ⭐</span></div>
+      <div class="camino">
+        <div class="meta meta1">🏁<small>META 1</small></div>
+        <div class="meta meta2">🏆<small>META 2</small></div>
+        <div id="jugador" class="jugador">👧🏻</div>
+        <div class="casilla c1">⭐</div><div class="casilla c2">⭐</div>
+        <div class="casilla c3">⭐</div><div class="casilla c4">⭐</div>
+        <div class="casilla c5">🎁</div>
+      </div>
+
+      <div class="tarjeta juego-card">
+        <div class="guia">
+          <div id="personajeJuego" class="personaje">👧🏻</div>
+          <div class="burbuja mini"><span id="frase">¡Tira los dados! 🎲</span></div>
+        </div>
+
+        <div class="dados" id="dados">
+          <div class="dado-box"><div id="dado1" class="dado">⚄</div><span>DADO 1</span></div>
+          <div id="signo1" class="signo">+</div>
+          <div class="dado-box"><div id="dado2" class="dado">⚃</div><span>DADO 2</span></div>
+          <div id="extra" class="extra-combinada">
+            <span id="signo2" class="signo">−</span>
+            <div class="dado-box"><div id="dado3" class="dado">⚁</div><span>DADO 3</span></div>
+          </div>
+        </div>
+
+        <div id="pregunta" class="pregunta">5 + 4 = ?</div>
+        <div class="respuesta">
+          <input id="respuesta" type="number" inputmode="numeric" placeholder="Tu respuesta">
+          <button id="btnResponder">✅ RESPONDER</button>
+        </div>
+        <div id="resultado" class="resultado"></div>
+        <button id="btnSiguiente" class="siguiente oculto">➡️ SIGUIENTE TURNO</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="final" class="pantalla">
+    <div class="tarjeta final-card">
+      <div class="personaje grande">🏆👧🏻</div>
+      <h1>🎉 ¡MISIÓN TERMINADA! 🎉</h1>
+      <p id="resumenFinal"></p>
+      <div class="trofeo">🏆 ⭐ 🎈 ⭐ 🏆</div>
+      <button id="btnOtra">🗺️ ELEGIR OTRA MISIÓN</button>
+    </div>
+  </section>
+
+  <script src="js/juego.js"></script>
+</body>
+</html>

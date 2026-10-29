@@ -1,0 +1,67 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:"Trebuchet MS",Arial,sans-serif;color:#263238;min-height:100vh;background:#bde9ff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:
+linear-gradient(#d9f4ff 0 58%,#b8e7a4 58% 100%)}
+body:after{content:"☁️     ☁️        ☁️";position:fixed;top:25px;left:0;width:100%;font-size:45px;letter-spacing:35px;opacity:.75;z-index:-1}
+.pantalla{display:none;min-height:100vh;padding:25px;align-items:center;justify-content:center}
+.pantalla.activa{display:flex}
+.decoracion{position:fixed;top:8px;left:0;right:0;text-align:center;font-size:28px;word-spacing:12px}
+.tarjeta{width:min(1050px,96vw);background:#fff;border:5px solid #ffd166;border-radius:32px;box-shadow:0 12px 0 #7cb9d9,0 18px 35px #49778c55;padding:28px}
+.bienvenida{display:flex;gap:25px;align-items:center;margin-top:30px}
+.personaje{font-size:105px;filter:drop-shadow(0 7px 3px #0002);animation:flotar 2s infinite ease-in-out}
+.personaje.grande{font-size:150px}
+.burbuja{background:#fff4bf;border:4px solid #ffcf56;border-radius:28px;padding:20px;position:relative}
+.burbuja:before{content:"";position:absolute;left:-22px;top:35px;border-width:12px 22px 12px 0;border-style:solid;border-color:transparent #ffcf56 transparent transparent}
+h1{font-size:clamp(30px,5vw,58px);margin:5px 0;color:#ff6b6b;text-shadow:3px 3px #ffd166}
+h2{font-size:35px;color:#4d96ff;margin:5px}
+p{font-size:21px;line-height:1.4}
+label{display:block;font-weight:bold;font-size:19px;margin:15px 0 7px}
+input{border:4px solid #8ecae6;border-radius:16px;padding:14px;font-size:20px;outline:none;width:100%;background:#f8fdff}
+button{border:0;border-radius:18px;padding:15px 22px;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 5px 0 #0002;transition:.15s}
+button:hover{transform:translateY(-3px)}
+#btnEmpezar,.siguiente,#btnOtra{background:#06d6a0;color:white;margin-top:18px}
+.barra{position:fixed;top:0;left:0;right:0;background:#ffffffeb;backdrop-filter:blur(5px);padding:12px 18px;display:flex;justify-content:center;gap:22px;align-items:center;z-index:20;box-shadow:0 4px 10px #0002;font-size:17px;flex-wrap:wrap}
+.barra button{padding:8px 13px;background:#ffcf56}
+.menu-card{margin-top:65px;text-align:center}
+.misiones{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}
+.mision{min-height:150px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.mision strong{font-size:22px}.mision small{font-size:14px}
+.suma{background:#4d96ff}.resta{background:#ff6b6b}.multi{background:#9b5de5}.combinada{background:#f9844a}
+.aula{width:min(1200px,98vw);padding-top:75px}
+.pizarra{margin:0 auto 15px;max-width:850px;text-align:center;background:#276749;color:white;border:12px solid #9c6644;border-radius:15px;padding:12px;font-size:25px;box-shadow:0 8px 0 #6d4530}
+.camino{height:115px;background:#d8f3dc;border:5px dashed #52b788;border-radius:25px;position:relative;margin-bottom:15px;overflow:hidden}
+.casilla{position:absolute;top:35px;font-size:30px}.c1{left:22%}.c2{left:40%}.c3{left:58%}.c4{left:76%}.c5{right:2%}.bandera{position:absolute;right:0;top:4px;font-size:45px}
+.jugador{position:absolute;left:3%;top:35px;font-size:48px;z-index:5;transition:left .8s ease;animation:caminar .6s infinite alternate}
+.juego-card{max-width:1000px;margin:auto}
+.guia{display:flex;align-items:center;justify-content:center;gap:10px}.guia .personaje{font-size:70px}.mini{padding:12px 20px;font-size:20px}
+.dados{display:flex;align-items:center;justify-content:center;gap:18px;margin:20px auto}
+.dado-box{text-align:center;font-weight:bold;color:#457b9d}
+.dado{width:150px;height:150px;border-radius:28px;background:#fff;border:7px solid #ff6b6b;box-shadow:0 10px 0 #d95050,0 15px 20px #0002;display:flex;align-items:center;justify-content:center;font-size:92px;animation:dado .45s ease}
+.signo{font-size:65px;font-weight:900;color:#ff8c42}
+.extra-combinada{display:flex;align-items:center;gap:15px}
+.extra-combinada.oculto{display:none}
+.pregunta{text-align:center;font-size:48px;font-weight:900;color:#4d96ff;margin:20px}
+.respuesta{display:flex;gap:12px;max-width:650px;margin:auto}
+.respuesta input{flex:1;text-align:center;font-size:28px}.respuesta button{background:#4d96ff;color:#fff}
+.resultado{text-align:center;min-height:48px;font-size:27px;font-weight:900;margin:15px}
+.siguiente{display:block;margin:0 auto}.oculto{display:none!important}
+.correcto{color:#06a77d;animation:pop .5s}.incorrecto{color:#e63946;animation:shake .45s}
+.trofeo{font-size:55px;margin:20px}.final-card{text-align:center}
+.final-card h1{color:#4d96ff}
+@keyframes flotar{50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes dado{0%{transform:rotate(-15deg) scale(.6)}100%{transform:rotate(0) scale(1)}}
+@keyframes pop{50%{transform:scale(1.25)}}
+@keyframes shake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+@keyframes caminar{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+@media(max-width:800px){.misiones{grid-template-columns:repeat(2,1fr)}.bienvenida{flex-direction:column}.personaje.grande{font-size:100px}.dado{width:105px;height:105px;font-size:62px}.pregunta{font-size:35px}.dados{gap:8px}.signo{font-size:40px}.extra-combinada{gap:5px}}
+@media(max-width:520px){.misiones{grid-template-columns:1fr}.dados{flex-wrap:wrap}.respuesta{flex-direction:column}.pizarra{font-size:18px}.barra{font-size:14px}.dado{width:90px;height:90px;font-size:52px}}
+
+.meta{position:absolute;top:5px;font-size:42px;text-align:center;z-index:2;animation:metaBrilla 1.5s infinite}
+.meta small{display:block;font-size:11px;font-weight:900;background:#fff;border-radius:8px;padding:2px 5px;color:#276749}
+.meta1{left:46%}.meta2{right:0}
+#estrellasMeta{float:right;font-size:18px}
+@keyframes metaBrilla{50%{transform:scale(1.16) rotate(3deg);filter:drop-shadow(0 0 10px #ffd166)}}
+.metaLlegada{animation:llegada .8s ease 3!important}
+@keyframes llegada{50%{transform:scale(1.5) rotate(12deg)}}
+.explosion{position:fixed;inset:0;pointer-events:none;z-index:100;display:flex;align-items:center;justify-content:center;font-size:75px;animation:explosion 1.2s ease forwards}
+@keyframes explosion{0%{transform:scale(.2);opacity:0}30%{transform:scale(1.4);opacity:1}100%{transform:scale(1.1);opacity:0}}
